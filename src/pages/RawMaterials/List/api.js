@@ -3,7 +3,7 @@ import {
   options,
 } from '../../../utils/http';
 
-const deleteRawMaterial = (id) => fetch(
+const deleteRawMaterial = id => fetch(
   `${process.env.REACT_APP__API_URL}/raw-materials/${id}`,
   options('DELETE'),
 ).then(handleResponse);

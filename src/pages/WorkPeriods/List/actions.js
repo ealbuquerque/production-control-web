@@ -1,4 +1,6 @@
-import { createAction } from 'redux-actions';
+import {
+  createAction,
+} from 'redux-actions';
 
 import {
   TOAST_ERROR,
@@ -27,7 +29,7 @@ const listErrorAction = createAction(LIST_ERROR);
 const listRequestAction = createAction(LIST_REQUEST);
 const listSuccessAction = createAction(LIST_SUCCESS);
 
-export const deleteWorkPeriod = (id) => (dispatch) => {
+export const deleteWorkPeriod = id => (dispatch) => {
   const dispatcher = `${CONTEXT}.deleteWorkPeriod`;
   dispatch(loadingShowAction(dispatcher));
 

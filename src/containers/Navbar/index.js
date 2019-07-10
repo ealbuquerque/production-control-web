@@ -1,5 +1,9 @@
-import { connect } from 'react-redux';
-import { compose } from 'redux';
+import {
+  connect,
+} from 'react-redux';
+import {
+  compose,
+} from 'redux';
 
 import Component from '../../components/Navbar';
 

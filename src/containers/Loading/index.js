@@ -1,7 +1,9 @@
 import {
+  connect,
+} from 'react-redux';
+import {
   compose,
 } from 'redux';
-import { connect } from 'react-redux';
 
 import Loading from '../../components/Loading';
 
