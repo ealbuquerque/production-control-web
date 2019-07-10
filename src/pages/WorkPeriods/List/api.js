@@ -3,7 +3,7 @@ import {
   options,
 } from '../../../utils/http';
 
-const deleteWorkPeriod = (id) => fetch(
+const deleteWorkPeriod = id => fetch(
   `${process.env.REACT_APP__API_URL}/work-periods/${id}`,
   options('DELETE'),
 ).then(handleResponse);

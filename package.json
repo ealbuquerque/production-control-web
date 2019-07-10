@@ -5,6 +5,11 @@
   "dependencies": {
     "bloomer": "^0.6.5",
     "bulma": "^0.7.5",
+    "eslint": "^6.0.1",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.2",
     "font-awesome": "^4.7.0",
     "i18next": "^17.0.6",
     "i18next-browser-languagedetector": "^3.0.1",
@@ -26,10 +31,12 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint ./src && stylelint --config=.stylelintrc.json '**/*.scss'",
+    "lint-fix": "eslint ./src --fix && stylelint --config=.stylelintrc.json '**/*.scss' --fix",
+    "start": "react-scripts start",
+    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": "react-app"

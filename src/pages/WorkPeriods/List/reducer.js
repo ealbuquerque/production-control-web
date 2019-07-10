@@ -19,9 +19,11 @@ export default (state = initialState, action) => {
     case DELETE_SUCCESS:
       return {
         ...state,
-        list: state.list.filter(({ id }) => id !== payload),
+        list: state.list.filter(({
+          id,
+        }) => id !== payload),
       };
-    
+
     case LIST_ERROR:
       return {
         ...state,

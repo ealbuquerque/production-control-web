@@ -1,4 +1,6 @@
-import { createAction } from 'redux-actions';
+import {
+  createAction,
+} from 'redux-actions';
 
 export const LOADING__HIDE = 'loading/HIDE';
 export const loadingHideAction = createAction(LOADING__HIDE);
