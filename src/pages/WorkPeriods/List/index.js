@@ -8,14 +8,14 @@ import {
 } from 'react-i18next';
 
 import {
-  deleteRawMaterial,
-  getRawMaterials,
+  deleteWorkPeriod,
+  getWorkPeriods,
 } from './actions';
 
 import Page from './page';
 
 const mapStateToProps = ({
-  rawMaterials: {
+  workPeriods: {
     error,
     list,
   },
@@ -29,16 +29,17 @@ const mapStateToProps = ({
     edit: t('general:edit'),
     name: t('general:name'),
     noRecordToDisplay: t('general:noRecordToDisplay'),
-    pageTitle: t('general:pages.rawMaterials.title'),
+    pageTitle: t('general:pages.workPeriods.title'),
     quantity: t('general:quantity'),
     remove: t('general:remove'),
+    value: t('general:value'),
   },
-  rawMaterials: list,
+  workPeriods: list,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  deleteRawMaterial,
-  getRawMaterials,
+  deleteWorkPeriod,
+  getWorkPeriods,
 }, dispatch);
 
 export default compose(
