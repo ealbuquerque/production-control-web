@@ -9,6 +9,9 @@
     "employees": {
       "title": "Funcionários"
     },
+    "products": {
+      "title": "Produtos"
+    },
     "rawMaterials": {
       "title": "Matérias-Primas"
     },
