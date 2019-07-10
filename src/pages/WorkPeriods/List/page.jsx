@@ -21,7 +21,9 @@ function Page({
 }) {
   useEffect(() => {
     getWorkPeriods();
-  }, [getWorkPeriods]);
+  }, [
+    getWorkPeriods,
+  ]);
 
   function renderTableRows({
     id,
@@ -29,33 +31,43 @@ function Page({
   }) {
     return (
       <tr key={id}>
-        <th>{id}</th>
-        <td>{value}</td>
+        <th>
+          {id}
+        </th>
+        <td>
+          {value}
+        </td>
         <td className="table_body--actions">
           <p className="buttons">
             <button
+              type="button"
               className="button is-small"
               disabled
             >
               <span className="icon">
-                <i className="fa fa-edit"></i>
+                <i className="fa fa-edit" />
               </span>
-              <span>{editLabel}</span>
+              <span>
+                {editLabel}
+              </span>
             </button>
             <button
+              type="button"
               className="button is-small"
               onClick={() => deleteWorkPeriod(id)}
             >
               <span className="icon">
-                <i className="fa fa-trash"></i>
+                <i className="fa fa-trash" />
               </span>
-              <span>{removeLabel}</span>
+              <span>
+                {removeLabel}
+              </span>
             </button>
           </p>
         </td>
       </tr>
     );
-  };
+  }
 
   const showList = workPeriods && workPeriods.length;
   return (
@@ -66,13 +78,16 @@ function Page({
       <div className="columns">
         <div className="column">
           <button
+            type="button"
             className="button is-small"
             disabled
           >
             <span className="icon">
-              <i className="fa fa-edit"></i>
+              <i className="fa fa-edit" />
             </span>
-            <span>{addLabel}</span>
+            <span>
+              {addLabel}
+            </span>
           </button>
         </div>
       </div>
@@ -83,8 +98,12 @@ function Page({
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>{valueLabel}</th>
-                  <th className="table_header--actions">{actionsLabel}</th>
+                  <th>
+                    {valueLabel}
+                  </th>
+                  <th className="table_header--actions">
+                    {actionsLabel}
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -93,13 +112,15 @@ function Page({
             </table>
           )}
           {!showList && (
-            <span>{noRecordToDisplayLabel}</span>
+            <span>
+              {noRecordToDisplayLabel}
+            </span>
           )}
         </div>
       </div>
     </div>
   );
-};
+}
 
 Page.defaultProps = {
   error: undefined,
@@ -109,13 +130,15 @@ Page.defaultProps = {
 Page.propTypes = {
   deleteWorkPeriod: PropTypes.func.isRequired,
   error: PropTypes.shape({
-    details: PropTypes.shape({}),
+    details: PropTypes.shape({
+    }),
   }),
   getWorkPeriods: PropTypes.func.isRequired,
   labels: PropTypes.shape({
     actions: PropTypes.string.isRequired,
     add: PropTypes.string.isRequired,
     edit: PropTypes.string.isRequired,
+    noRecordToDisplay: PropTypes.string.isRequired,
     pageTitle: PropTypes.string.isRequired,
     remove: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,

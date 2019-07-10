@@ -22,7 +22,9 @@ function Page({
 }) {
   useEffect(() => {
     getEmployees();
-  }, [getEmployees]);
+  }, [
+    getEmployees,
+  ]);
 
   function renderTableRows({
     id,
@@ -33,34 +35,46 @@ function Page({
   }) {
     return (
       <tr key={id}>
-        <th>{id}</th>
-        <td>{name}</td>
-        <td>{value}</td>
+        <th>
+          {id}
+        </th>
+        <td>
+          {name}
+        </td>
+        <td>
+          {value}
+        </td>
         <td className="table_body--actions">
           <p className="buttons">
             <button
+              type="button"
               className="button is-small"
               disabled
             >
               <span className="icon">
-                <i className="fa fa-edit"></i>
+                <i className="fa fa-edit" />
               </span>
-              <span>{editLabel}</span>
+              <span>
+                {editLabel}
+              </span>
             </button>
             <button
+              type="button"
               className="button is-small"
               onClick={() => deleteEmployee(id)}
             >
               <span className="icon">
-                <i className="fa fa-trash"></i>
+                <i className="fa fa-trash" />
               </span>
-              <span>{removeLabel}</span>
+              <span>
+                {removeLabel}
+              </span>
             </button>
           </p>
         </td>
       </tr>
     );
-  };
+  }
 
   const showList = employees && employees.length;
   return (
@@ -71,13 +85,16 @@ function Page({
       <div className="columns">
         <div className="column">
           <button
+            type="button"
             className="button is-small"
             disabled
           >
             <span className="icon">
-              <i className="fa fa-edit"></i>
+              <i className="fa fa-edit" />
             </span>
-            <span>{addLabel}</span>
+            <span>
+              {addLabel}
+            </span>
           </button>
         </div>
       </div>
@@ -88,9 +105,15 @@ function Page({
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>{nameLabel}</th>
-                  <th>{workPeriodLabel}</th>
-                  <th className="table_header--actions">{actionsLabel}</th>
+                  <th>
+                    {nameLabel}
+                  </th>
+                  <th>
+                    {workPeriodLabel}
+                  </th>
+                  <th className="table_header--actions">
+                    {actionsLabel}
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -99,13 +122,15 @@ function Page({
             </table>
           )}
           {!showList && (
-            <span>{noRecordToDisplayLabel}</span>
+            <span>
+              {noRecordToDisplayLabel}
+            </span>
           )}
         </div>
       </div>
     </div>
   );
-};
+}
 
 Page.defaultProps = {
   error: undefined,
@@ -120,7 +145,8 @@ Page.propTypes = {
     quantity: PropTypes.number.isRequired,
   })),
   error: PropTypes.shape({
-    details: PropTypes.shape({}),
+    details: PropTypes.shape({
+    }),
   }),
   getEmployees: PropTypes.func.isRequired,
   labels: PropTypes.shape({
@@ -128,6 +154,7 @@ Page.propTypes = {
     add: PropTypes.string.isRequired,
     edit: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
+    noRecordToDisplay: PropTypes.string.isRequired,
     pageTitle: PropTypes.string.isRequired,
     remove: PropTypes.string.isRequired,
     workPeriod: PropTypes.string.isRequired,

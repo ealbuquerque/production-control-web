@@ -22,7 +22,9 @@ function Page({
 }) {
   useEffect(() => {
     getRawMaterials();
-  }, [getRawMaterials]);
+  }, [
+    getRawMaterials,
+  ]);
 
   function renderTableRows({
     id,
@@ -31,28 +33,40 @@ function Page({
   }) {
     return (
       <tr key={id}>
-        <th>{id}</th>
-        <td>{name}</td>
-        <td>{quantity}</td>
+        <th>
+          {id}
+        </th>
+        <td>
+          {name}
+        </td>
+        <td>
+          {quantity}
+        </td>
         <td className="table_body--actions">
           <p className="buttons">
             <button
+              type="button"
               className="button is-small"
               disabled
             >
               <span className="icon">
-                <i className="fa fa-edit"></i>
+                <i className="fa fa-edit" />
               </span>
-              <span>{editLabel}</span>
+              <span>
+                {editLabel}
+              </span>
             </button>
             <button
+              type="button"
               className="button is-small"
               onClick={() => deleteRawMaterial(id)}
             >
               <span className="icon">
-                <i className="fa fa-trash"></i>
+                <i className="fa fa-trash" />
               </span>
-              <span>{removeLabel}</span>
+              <span>
+                {removeLabel}
+              </span>
             </button>
           </p>
         </td>
@@ -69,13 +83,16 @@ function Page({
       <div className="columns">
         <div className="column">
           <button
+            type="button"
             className="button is-small"
             disabled
           >
             <span className="icon">
-              <i className="fa fa-edit"></i>
+              <i className="fa fa-edit" />
             </span>
-            <span>{addLabel}</span>
+            <span>
+              {addLabel}
+            </span>
           </button>
         </div>
       </div>
@@ -86,9 +103,15 @@ function Page({
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>{nameLabel}</th>
-                  <th>{quantityLabel}</th>
-                  <th className="table_header--actions">{actionsLabel}</th>
+                  <th>
+                    {nameLabel}
+                  </th>
+                  <th>
+                    {quantityLabel}
+                  </th>
+                  <th className="table_header--actions">
+                    {actionsLabel}
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -97,7 +120,9 @@ function Page({
             </table>
           )}
           {!showList && (
-            <span>{noRecordToDisplayLabel}</span>
+            <span>
+              {noRecordToDisplayLabel}
+            </span>
           )}
         </div>
       </div>
@@ -113,7 +138,8 @@ Page.defaultProps = {
 Page.propTypes = {
   deleteRawMaterial: PropTypes.func.isRequired,
   error: PropTypes.shape({
-    details: PropTypes.shape({}),
+    details: PropTypes.shape({
+    }),
   }),
   getRawMaterials: PropTypes.func.isRequired,
   labels: PropTypes.shape({
@@ -121,6 +147,7 @@ Page.propTypes = {
     add: PropTypes.string.isRequired,
     edit: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
+    noRecordToDisplay: PropTypes.string.isRequired,
     pageTitle: PropTypes.string.isRequired,
     quantity: PropTypes.string.isRequired,
     remove: PropTypes.string.isRequired,
