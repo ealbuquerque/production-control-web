@@ -142,7 +142,10 @@ Page.propTypes = {
   employees: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    quantity: PropTypes.number.isRequired,
+    workPeriod: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      value: PropTypes.string.isRequired,
+    }),
   })),
   error: PropTypes.shape({
     details: PropTypes.shape({
