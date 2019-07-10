@@ -15,7 +15,7 @@ import i18n from '../../../i18n';
 
 import Api from './api';
 
-const CONTEXT = 'RawMaterialsList';
+const CONTEXT = 'WorkPeriodsList';
 
 export const DELETE_SUCCESS = `${CONTEXT}/DELETE_SUCCESS`;
 const deleteSuccessAction = createAction(DELETE_SUCCESS);
@@ -27,11 +27,11 @@ const listErrorAction = createAction(LIST_ERROR);
 const listRequestAction = createAction(LIST_REQUEST);
 const listSuccessAction = createAction(LIST_SUCCESS);
 
-export const deleteRawMaterial = (id) => (dispatch) => {
-  const dispatcher = `${CONTEXT}.deleteRawMaterial`;
+export const deleteWorkPeriod = (id) => (dispatch) => {
+  const dispatcher = `${CONTEXT}.deleteWorkPeriod`;
   dispatch(loadingShowAction(dispatcher));
 
-  Api.deleteRawMaterial(id)
+  Api.deleteWorkPeriod(id)
     .then(() => {
       dispatch(deleteSuccessAction(id));
       toastMessage(i18n.t('general:registrySuccessfullyRemoved'), TOAST_SUCCESS);
@@ -40,12 +40,12 @@ export const deleteRawMaterial = (id) => (dispatch) => {
     .finally(() => dispatch(loadingHideAction(dispatcher)));
 };
 
-export const getRawMaterials = () => (dispatch) => {
-  const dispatcher = `${CONTEXT}.getRawMaterials`;
+export const getWorkPeriods = () => (dispatch) => {
+  const dispatcher = `${CONTEXT}.getWorkPeriods`;
   dispatch(loadingShowAction(dispatcher));
   dispatch(listRequestAction(dispatcher));
 
-  Api.getRawMaterials()
+  Api.getWorkPeriods()
     .then(result => dispatch(listSuccessAction(result)))
     .catch((error) => {
       dispatch(listErrorAction(error));

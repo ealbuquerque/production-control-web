@@ -6,10 +6,15 @@
   "navbar": {},
   "noRecordToDisplay": "Nenhum registro para exibir",
   "pages": {
-    "RawMaterials": {
+    "rawMaterials": {
       "title": "Matérias-Primas"
+    },
+    "workPeriods": {
+      "title": "Jornadas de trabalho"
     }
   },
   "quantity": "Quantidade",
-  "remove": "Remover"
+  "registrySuccessfullyRemoved": "Registry successfully removed",
+  "remove": "Remover",
+  "value": "Valor"
 }
