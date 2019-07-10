@@ -1,0 +1,15 @@
+{
+  "actions": "Ações",
+  "add": "Adicionar",
+  "edit": "Editar",
+  "name": "Nome",
+  "navbar": {},
+  "noRecordToDisplay": "Nenhum registro para exibir",
+  "pages": {
+    "RawMaterials": {
+      "title": "Matérias-Primas"
+    }
+  },
+  "quantity": "Quantidade",
+  "remove": "Remover"
+}
