@@ -40,6 +40,8 @@ npm install
 
 ### 4º Passo - Iniciar a aplicação
 
+#### Manualmente
+
 ```bash
 yarn start
 
@@ -47,3 +49,19 @@ yarn start
 
 npm run start
 ```
+
+#### Docker
+
+Este [docker-compose](docker-compose.yml) vai gerar a imagem do docker (caso não exista) e subir o serviço na porta 3000.
+
+```
+# subir serviço
+docker-compose up -d
+
+# parar serviço
+docker-compose down -v
+```
+
+## Issues para resolver
+
+[Acesse aqui](https://github.com/ealbuquerque/production-control-web/issues)
