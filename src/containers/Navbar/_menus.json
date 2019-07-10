@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Home",
+    "path": "/"
+  },
+  {
+    "label": "Matérias-Prima",
+    "path": "/raw-materials"
+  },
+  {
+    "label": "Jornadas de trabalho",
+    "path": "/work-periods"
+  }
+]
