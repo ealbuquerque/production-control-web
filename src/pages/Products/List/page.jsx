@@ -83,7 +83,7 @@ function Page({
     );
   }
 
-  const showList = products && products.length;
+  const showList = Boolean(products && products.length);
   return (
     <div className="products__container">
       <h1 className="title">
