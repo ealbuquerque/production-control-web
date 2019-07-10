@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import thunk from 'redux-thunk';
 import {
   applyMiddleware,

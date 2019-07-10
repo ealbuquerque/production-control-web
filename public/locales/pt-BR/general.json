@@ -6,6 +6,9 @@
   "navbar": {},
   "noRecordToDisplay": "Nenhum registro para exibir",
   "pages": {
+    "employees": {
+      "title": "Funcionários"
+    },
     "rawMaterials": {
       "title": "Matérias-Primas"
     },
@@ -16,5 +19,6 @@
   "quantity": "Quantidade",
   "registrySuccessfullyRemoved": "Registry successfully removed",
   "remove": "Remover",
-  "value": "Valor"
+  "value": "Valor",
+  "workPeriod": "Jornada de trabalho"
 }

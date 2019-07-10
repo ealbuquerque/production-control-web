@@ -4,6 +4,10 @@
     "path": "/"
   },
   {
+    "label": "Funcionários",
+    "path": "/employees"
+  },
+  {
     "label": "Matérias-Prima",
     "path": "/raw-materials"
   },
