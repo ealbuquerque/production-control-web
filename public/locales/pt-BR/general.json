@@ -2,12 +2,16 @@
   "actions": "Ações",
   "add": "Adicionar",
   "edit": "Editar",
+  "employee": "Funcionário",
   "name": "Nome",
   "navbar": {},
   "noRecordToDisplay": "Nenhum registro para exibir",
   "pages": {
     "employees": {
       "title": "Funcionários"
+    },
+    "products": {
+      "title": "Produtos"
     },
     "rawMaterials": {
       "title": "Matérias-Primas"
@@ -17,7 +21,8 @@
     }
   },
   "quantity": "Quantidade",
-  "registrySuccessfullyRemoved": "Registry successfully removed",
+  "rawMaterials": "Matérias-Primas",
+  "registrySuccessfullyRemoved": "Registro removido com sucesso",
   "remove": "Remover",
   "value": "Valor",
   "workPeriod": "Jornada de trabalho"

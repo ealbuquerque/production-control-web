@@ -6,28 +6,34 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 function Page({
-  deleteWorkPeriod,
-  getWorkPeriods,
+  deleteProduct,
+  getProducts,
   labels: {
     actions: actionsLabel,
     add: addLabel,
     edit: editLabel,
+    employee: employeeLabel,
+    name: nameLabel,
     noRecordToDisplay: noRecordToDisplayLabel,
     pageTitle,
+    rawMaterials: rawMaterialsLabel,
     remove: removeLabel,
-    value: valueLabel,
   },
-  workPeriods,
+  products,
 }) {
   useEffect(() => {
-    getWorkPeriods();
+    getProducts();
   }, [
-    getWorkPeriods,
+    getProducts,
   ]);
 
   function renderTableRows({
     id,
-    value,
+    name,
+    employee: {
+      name: employeeName,
+    },
+    rawMaterials,
   }) {
     return (
       <tr key={id}>
@@ -35,7 +41,15 @@ function Page({
           {id}
         </th>
         <td>
-          {value}
+          {name}
+        </td>
+        <td>
+          {employeeName}
+        </td>
+        <td>
+          {rawMaterials.map(({
+            name: rawMaterialName,
+          }) => rawMaterialName).join(', ')}
         </td>
         <td className="table_body--actions">
           <p className="buttons">
@@ -54,7 +68,7 @@ function Page({
             <button
               type="button"
               className="button is-small"
-              onClick={() => deleteWorkPeriod(id)}
+              onClick={() => deleteProduct(id)}
             >
               <span className="icon">
                 <i className="fa fa-trash" />
@@ -69,9 +83,9 @@ function Page({
     );
   }
 
-  const showList = workPeriods && workPeriods.length;
+  const showList = products && products.length;
   return (
-    <div className="work-periods__container">
+    <div className="products__container">
       <h1 className="title">
         {pageTitle}
       </h1>
@@ -99,7 +113,13 @@ function Page({
                 <tr>
                   <th>#</th>
                   <th>
-                    {valueLabel}
+                    {nameLabel}
+                  </th>
+                  <th>
+                    {employeeLabel}
+                  </th>
+                  <th>
+                    {rawMaterialsLabel}
                   </th>
                   <th className="table_header--actions">
                     {actionsLabel}
@@ -107,7 +127,7 @@ function Page({
                 </tr>
               </thead>
               <tbody>
-                {workPeriods.map(renderTableRows)}
+                {products.map(renderTableRows)}
               </tbody>
             </table>
           )}
@@ -124,28 +144,38 @@ function Page({
 
 Page.defaultProps = {
   error: undefined,
-  workPeriods: undefined,
+  products: undefined,
 };
 
 Page.propTypes = {
-  deleteWorkPeriod: PropTypes.func.isRequired,
+  deleteProduct: PropTypes.func.isRequired,
   error: PropTypes.shape({
     details: PropTypes.shape({
     }),
   }),
-  getWorkPeriods: PropTypes.func.isRequired,
+  getProducts: PropTypes.func.isRequired,
   labels: PropTypes.shape({
     actions: PropTypes.string.isRequired,
     add: PropTypes.string.isRequired,
     edit: PropTypes.string.isRequired,
+    employee: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     noRecordToDisplay: PropTypes.string.isRequired,
     pageTitle: PropTypes.string.isRequired,
+    rawMaterials: PropTypes.string.isRequired,
     remove: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
   }).isRequired,
-  workPeriods: PropTypes.arrayOf(PropTypes.shape({
+  products: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
-    value: PropTypes.string.isRequired,
+    employee: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+    }).isRequired,
+    name: PropTypes.string.isRequired,
+    rawMaterials: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+    })).isRequired,
   })),
 };
 
