@@ -2,6 +2,7 @@
   "actions": "Ações",
   "add": "Adicionar",
   "edit": "Editar",
+  "employee": "Funcionário",
   "name": "Nome",
   "navbar": {},
   "noRecordToDisplay": "Nenhum registro para exibir",
@@ -20,7 +21,8 @@
     }
   },
   "quantity": "Quantidade",
-  "registrySuccessfullyRemoved": "Registry successfully removed",
+  "rawMaterials": "Matérias-Primas",
+  "registrySuccessfullyRemoved": "Registro removido com sucesso",
   "remove": "Remover",
   "value": "Valor",
   "workPeriod": "Jornada de trabalho"

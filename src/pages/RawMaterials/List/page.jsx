@@ -72,7 +72,7 @@ function Page({
         </td>
       </tr>
     );
-  };
+  }
 
   const showList = rawMaterials && rawMaterials.length;
   return (
@@ -128,7 +128,7 @@ function Page({
       </div>
     </div>
   );
-};
+}
 
 Page.defaultProps = {
   error: undefined,

@@ -12,10 +12,11 @@ function Page({
     actions: actionsLabel,
     add: addLabel,
     edit: editLabel,
+    employee: employeeLabel,
     name: nameLabel,
     noRecordToDisplay: noRecordToDisplayLabel,
     pageTitle,
-    quantity: quantityLabel,
+    rawMaterials: rawMaterialsLabel,
     remove: removeLabel,
   },
   products,
@@ -29,7 +30,10 @@ function Page({
   function renderTableRows({
     id,
     name,
-    quantity,
+    employee: {
+      name: employeeName,
+    },
+    rawMaterials,
   }) {
     return (
       <tr key={id}>
@@ -40,7 +44,12 @@ function Page({
           {name}
         </td>
         <td>
-          {quantity}
+          {employeeName}
+        </td>
+        <td>
+          {rawMaterials.map(({
+            name: rawMaterialName,
+          }) => rawMaterialName).join(', ')}
         </td>
         <td className="table_body--actions">
           <p className="buttons">
@@ -107,7 +116,10 @@ function Page({
                     {nameLabel}
                   </th>
                   <th>
-                    {quantityLabel}
+                    {employeeLabel}
+                  </th>
+                  <th>
+                    {rawMaterialsLabel}
                   </th>
                   <th className="table_header--actions">
                     {actionsLabel}
@@ -146,16 +158,24 @@ Page.propTypes = {
     actions: PropTypes.string.isRequired,
     add: PropTypes.string.isRequired,
     edit: PropTypes.string.isRequired,
+    employee: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     noRecordToDisplay: PropTypes.string.isRequired,
     pageTitle: PropTypes.string.isRequired,
-    quantity: PropTypes.string.isRequired,
+    rawMaterials: PropTypes.string.isRequired,
     remove: PropTypes.string.isRequired,
   }).isRequired,
   products: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
+    employee: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+    }).isRequired,
     name: PropTypes.string.isRequired,
-    quantity: PropTypes.number.isRequired,
+    rawMaterials: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+    })).isRequired,
   })),
 };
 
