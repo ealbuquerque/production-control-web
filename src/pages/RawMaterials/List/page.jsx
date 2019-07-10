@@ -74,7 +74,7 @@ function Page({
     );
   }
 
-  const showList = rawMaterials && rawMaterials.length;
+  const showList = Boolean(rawMaterials && rawMaterials.length);
   return (
     <div className="raw-materials__container">
       <h1 className="title">

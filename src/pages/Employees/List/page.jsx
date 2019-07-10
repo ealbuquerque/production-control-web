@@ -76,7 +76,7 @@ function Page({
     );
   }
 
-  const showList = employees && employees.length;
+  const showList = Boolean(employees && employees.length);
   return (
     <div className="raw-materials__container">
       <h1 className="title">

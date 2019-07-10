@@ -69,7 +69,7 @@ function Page({
     );
   }
 
-  const showList = workPeriods && workPeriods.length;
+  const showList = Boolean(workPeriods && workPeriods.length);
   return (
     <div className="work-periods__container">
       <h1 className="title">
