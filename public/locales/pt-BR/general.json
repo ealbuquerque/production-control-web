@@ -1,8 +1,13 @@
 {
   "actions": "Ações",
   "add": "Adicionar",
+  "cancel": "Cancelar",
   "edit": "Editar",
   "employee": "Funcionário",
+  "formValidation": {
+    "number": "Este campo deve ser um número",
+    "required": "Este campo é obrigatório"
+  },
   "name": "Nome",
   "navbar": {},
   "noRecordToDisplay": "Nenhum registro para exibir",
@@ -14,7 +19,12 @@
       "title": "Produtos"
     },
     "rawMaterials": {
-      "title": "Matérias-Primas"
+      "form": {
+        "title": "Matérias-Prima"
+      },
+      "list": {
+        "title": "Matérias-Primas"
+      }
     },
     "workPeriods": {
       "title": "Jornadas de trabalho"
@@ -22,8 +32,11 @@
   },
   "quantity": "Quantidade",
   "rawMaterials": "Matérias-Primas",
+  "registrySuccessfullyCreated": "Registro adicionado com sucesso",
   "registrySuccessfullyRemoved": "Registro removido com sucesso",
   "remove": "Remover",
+  "save": "Salvar",
+  "update": "Atualizar",
   "value": "Valor",
   "workPeriod": "Jornada de trabalho"
 }
