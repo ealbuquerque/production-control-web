@@ -14,7 +14,8 @@
     },
     "notFound": "Registro não encontrado",
     "offline": "Parece que você está sem internet! Por favor, verifique a sua conexão e tente novamente.",
-    "schemaValidation": "Erro ao validar esquema do objeto"
+    "schemaValidation": "Erro ao validar esquema do objeto",
+    "uniqueConstraintError": "O valor deve ser único."
   },
   "formValidation": {
     "number": "Este campo deve ser um número",
@@ -39,7 +40,12 @@
       }
     },
     "workPeriods": {
-      "title": "Jornadas de trabalho"
+      "form": {
+        "title": "Jornada de trabalho"
+      },
+      "list": {
+        "title": "Jornadas de trabalho"
+      }
     }
   },
   "quantity": "Quantidade",

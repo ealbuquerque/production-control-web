@@ -90,7 +90,7 @@ function Page({
             disabled
           >
             <span className="icon">
-              <i className="fa fa-edit" />
+              <i className="fa fa-plus" />
             </span>
             <span>
               {addLabel}

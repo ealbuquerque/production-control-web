@@ -89,7 +89,7 @@ function Page({
             to="/raw-materials/new"
           >
             <span className="icon">
-              <i className="fa fa-edit" />
+              <i className="fa fa-plus" />
             </span>
             <span>
               {addLabel}

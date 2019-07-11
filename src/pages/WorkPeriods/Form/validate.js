@@ -4,8 +4,8 @@ export default (fields) => {
   const errors = {
   };
 
-  if (!fields.name) {
-    errors.name = i18n.t('general:formValidation.required');
+  if (!fields.value) {
+    errors.value = i18n.t('general:formValidation.required');
   }
 
   return errors;
