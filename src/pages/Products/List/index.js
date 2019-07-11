@@ -32,7 +32,7 @@ const mapStateToProps = ({
     employee: t('general:employee'),
     name: t('general:name'),
     noRecordToDisplay: t('general:noRecordToDisplay'),
-    pageTitle: t('general:pages.products.title'),
+    pageTitle: t('general:pages.products.list.title'),
     quantity: t('general:quantity'),
     rawMaterials: t('general:rawMaterials'),
     remove: t('general:remove'),
