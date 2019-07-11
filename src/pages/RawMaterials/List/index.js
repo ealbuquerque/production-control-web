@@ -25,7 +25,7 @@ import validate from './validate';
 
 import {
   operations,
-} from '../../../utils/operations';
+} from '../../../utils/filters/rawMaterials';
 
 const mapStateToProps = ({
   rawMaterials: {
@@ -39,6 +39,7 @@ const mapStateToProps = ({
   labels: {
     actions: t('general:actions'),
     add: t('general:add'),
+    clean: t('general:clean'),
     edit: t('general:edit'),
     name: t('general:name'),
     noRecordToDisplay: t('general:noRecordToDisplay'),

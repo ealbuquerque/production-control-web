@@ -2,6 +2,7 @@
   "actions": "Ações",
   "add": "Adicionar",
   "cancel": "Cancelar",
+  "clean": "Limpar",
   "edit": "Editar",
   "employee": "Funcionário",
   "errors": {
@@ -61,6 +62,7 @@
     }
   },
   "quantity": "Quantidade",
+  "rawMaterial": "Matéria-Prima",
   "rawMaterials": "Matérias-Primas",
   "registrySuccessfullyCreated": "Registro adicionado com sucesso",
   "registrySuccessfullyRemoved": "Registro removido com sucesso",

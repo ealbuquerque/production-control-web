@@ -1,5 +1,6 @@
 import {
   DELETE_SUCCESS,
+  FILTER_SUCCESS,
   LIST_ERROR,
   LIST_REQUEST,
   LIST_SUCCESS,
@@ -33,6 +34,26 @@ export default (state = initialState, action) => {
         list: state.list.filter(({
           id,
         }) => id !== payload),
+      };
+
+    case FILTER_SUCCESS:
+      return {
+        ...state,
+        list: state.listBkp
+          .filter(({
+            employee,
+          }) => {
+            if (!payload.employee) return true;
+            return payload.employee.id === employee.id;
+          })
+          .filter(({
+            rawMaterials,
+          }) => {
+            if (!payload.rawMaterial) return true;
+            return rawMaterials
+              .map(item => item.id)
+              .includes(payload.rawMaterial.id);
+          }),
       };
 
     case ITEM_ERROR:
@@ -76,8 +97,9 @@ export default (state = initialState, action) => {
     case LIST_SUCCESS:
       return {
         ...state,
-        list: payload,
         error: undefined,
+        list: payload,
+        listBkp: payload,
       };
 
     case UPDATE_REQUEST:

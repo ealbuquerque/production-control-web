@@ -15,7 +15,7 @@ import {
   UPDATE_SUCCESS,
 } from './Form/actions';
 
-import operationHandler from '../../utils/operations';
+import filter from '../../utils/filters/rawMaterials';
 
 const initialState = {
   error: undefined,
@@ -44,7 +44,7 @@ export default (state = initialState, action) => {
         list: state.listBkp.filter(({
           quantity,
         }) => ((payload.quantity && payload.operation)
-          ? operationHandler(payload.quantity.value, quantity, payload.operation.operator)
+          ? filter(payload.quantity.value, quantity, payload.operation.operator)
           : () => true)),
       };
 

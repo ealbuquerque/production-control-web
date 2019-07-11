@@ -20,6 +20,7 @@ function Page({
   labels: {
     actions: actionsLabel,
     add: addLabel,
+    clean: cleanLabel,
     edit: editLabel,
     name: nameLabel,
     noRecordToDisplay: noRecordToDisplayLabel,
@@ -161,7 +162,7 @@ function Page({
                     <i className="fa fa-eraser" />
                   </span>
                   <span>
-                    {submitLabel}
+                    {cleanLabel}
                   </span>
                 </button>
               </div>
@@ -220,6 +221,7 @@ Page.propTypes = {
   labels: PropTypes.shape({
     actions: PropTypes.string.isRequired,
     add: PropTypes.string.isRequired,
+    clean: PropTypes.string.isRequired,
     edit: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     noRecordToDisplay: PropTypes.string.isRequired,
