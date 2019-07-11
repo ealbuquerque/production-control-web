@@ -16,17 +16,17 @@ import {
 } from 'react-router-dom';
 
 import {
-  createRawMaterial,
-  getRawMaterial,
+  createWorkPeriod,
+  getWorkPeriod,
   PATH_TO_GO_BACK,
-  updateRawMaterial,
+  updateWorkPeriod,
 } from './actions';
 
 import Page from './page';
 import validate from './validate';
 
 const mapStateToProps = ({
-  rawMaterials: {
+  workPeriods: {
     error,
     item,
   },
@@ -45,10 +45,9 @@ const mapStateToProps = ({
     initialValues: isAddPage ? undefined : item,
     labels: {
       cancel: t('general:cancel'),
-      name: t('general:name'),
-      pageTitle: t('general:pages.rawMaterials.form.title'),
-      quantity: t('general:quantity'),
+      pageTitle: t('general:pages.workPeriods.form.title'),
       submit: isAddPage ? t('general:add') : t('general:update'),
+      value: t('general:value'),
     },
     pathToGoBack: PATH_TO_GO_BACK,
   };
@@ -65,10 +64,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   } = ownProps;
 
   const isAddPage = pathParamId === undefined;
-  const handleSubmit = isAddPage ? createRawMaterial : updateRawMaterial;
+  const handleSubmit = isAddPage ? createWorkPeriod : updateWorkPeriod;
 
   return bindActionCreators({
-    getRawMaterial,
+    getWorkPeriod,
     onSubmit: handleSubmit(history, pathParamId),
   }, dispatch);
 };
@@ -78,7 +77,7 @@ export default compose(
   withRouter,
   connect(mapStateToProps, mapDispatchToProps),
   reduxForm({
-    form: 'RawMaterialForm',
+    form: 'WorkPeriodForm',
     validate,
   }),
 )(Page);

@@ -6,6 +6,7 @@ import ProductsList from '../pages/Products/List';
 import RawMaterialsForm from '../pages/RawMaterials/Form';
 import RawMaterialsList from '../pages/RawMaterials/List';
 import WorkPeriodsList from '../pages/WorkPeriods/List';
+import WorkPeriodsForm from '../pages/WorkPeriods/Form';
 
 export default [
   {
@@ -41,6 +42,15 @@ export default [
     path: '/work-periods',
     exact: true,
     component: WorkPeriodsList,
+  },
+  {
+    path: '/work-periods/new',
+    exact: true,
+    component: WorkPeriodsForm,
+  },
+  {
+    path: '/work-periods/:id',
+    component: WorkPeriodsForm,
   },
   {
     component: DefaultRoute,

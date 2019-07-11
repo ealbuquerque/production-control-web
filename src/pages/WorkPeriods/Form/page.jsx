@@ -11,10 +11,10 @@ import {
 
 import Input from '../../../components/Input';
 
-import normalizeNumber from '../../../utils/normalize/number';
+import normalizeWorkPeriod from '../../../utils/normalize/workPeriod';
 
 function Page({
-  getRawMaterial,
+  getWorkPeriod,
   handleSubmit,
   onSubmit,
   match: {
@@ -24,18 +24,17 @@ function Page({
   },
   labels: {
     cancel: cancelLabel,
-    name: nameLabel,
     pageTitle,
-    quantity: quantityLabel,
+    value: valueLabel,
     submit: submitLabel,
   },
   pathToGoBack,
   submitting,
 }) {
   useEffect(() => {
-    if (pathParamId !== undefined) getRawMaterial(pathParamId);
+    if (pathParamId !== undefined) getWorkPeriod(pathParamId);
   }, [
-    getRawMaterial,
+    getWorkPeriod,
     pathParamId,
   ]);
 
@@ -49,20 +48,14 @@ function Page({
           <form onSubmit={handleSubmit(onSubmit)}>
             <div>
               <Field
-                id="name"
+                id="value"
                 component={Input}
-                label={`${nameLabel} *`}
-                maxLength={100}
+                label={`${valueLabel} *`}
+                maxLength={2}
                 minLength={0}
-                name="name"
-                type="text"
-              />
-              <Field
-                id="quantity"
-                component={Input}
-                label={quantityLabel}
-                name="quantity"
-                normalize={normalizeNumber}
+                name="value"
+                normalize={normalizeWorkPeriod}
+                placeholder="8h"
                 type="text"
               />
               <div className="field is-grouped">
@@ -112,17 +105,15 @@ Page.propTypes = {
     details: PropTypes.shape({
     }),
   }),
-  getRawMaterial: PropTypes.func.isRequired,
+  getWorkPeriod: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   initialValues: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    quantity: PropTypes.number.isRequired,
+    value: PropTypes.string.isRequired,
   }),
   labels: PropTypes.shape({
     cancel: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
     pageTitle: PropTypes.string.isRequired,
-    quantity: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
     submit: PropTypes.string.isRequired,
   }).isRequired,
   match: PropTypes.shape({

@@ -17,7 +17,7 @@ import i18n from '../../../i18n';
 
 import Api from './api';
 
-const CONTEXT = 'RawMaterialForm';
+const CONTEXT = 'WorkPeriodForm';
 
 export const CREATE_ERROR = `${CONTEXT}/CREATE_ERROR`;
 export const CREATE_REQUEST = `${CONTEXT}/CREATE_REQUEST`;
@@ -39,14 +39,14 @@ const updateErrorAction = createAction(UPDATE_ERROR);
 const updateRequestAction = createAction(UPDATE_REQUEST);
 const updateSuccessAction = createAction(UPDATE_SUCCESS);
 
-export const PATH_TO_GO_BACK = '/raw-materials';
+export const PATH_TO_GO_BACK = '/work-periods';
 
-export const createRawMaterial = history => data => (dispatch) => {
-  const dispatcher = `${CONTEXT}.createRawMaterial`;
+export const createWorkPeriod = history => data => (dispatch) => {
+  const dispatcher = `${CONTEXT}.createWorkPeriod`;
   dispatch(loadingShowAction(dispatcher));
   dispatch(createRequestAction(dispatcher));
 
-  Api.createRawMaterial(data)
+  Api.createWorkPeriod(data)
     .then(() => {
       history.push(PATH_TO_GO_BACK);
       toastMessage(i18n.t('general:registrySuccessfullyCreated'), TOAST_SUCCESS);
@@ -60,12 +60,12 @@ export const createRawMaterial = history => data => (dispatch) => {
     .finally(() => dispatch(loadingHideAction(dispatcher)));
 };
 
-export const getRawMaterial = id => (dispatch) => {
-  const dispatcher = `${CONTEXT}.getRawMaterials`;
+export const getWorkPeriod = id => (dispatch) => {
+  const dispatcher = `${CONTEXT}.getWorkPeriods`;
   dispatch(loadingShowAction(dispatcher));
   dispatch(itemRequestAction(dispatcher));
 
-  Api.getRawMaterial(id)
+  Api.getWorkPeriod(id)
     .then(result => dispatch(itemSuccessAction(result)))
     .catch((error) => {
       dispatch(itemErrorAction(error));
@@ -76,12 +76,12 @@ export const getRawMaterial = id => (dispatch) => {
     .finally(() => dispatch(loadingHideAction(dispatcher)));
 };
 
-export const updateRawMaterial = (history, id) => data => (dispatch) => {
-  const dispatcher = `${CONTEXT}.updateRawMaterial`;
+export const updateWorkPeriod = (history, id) => data => (dispatch) => {
+  const dispatcher = `${CONTEXT}.updateWorkPeriod`;
   dispatch(loadingShowAction(dispatcher));
   dispatch(updateRequestAction(dispatcher));
 
-  Api.updateRawMaterials(id, data)
+  Api.updateWorkPeriods(id, data)
     .then(() => {
       dispatch(updateSuccessAction());
       history.push(PATH_TO_GO_BACK);
