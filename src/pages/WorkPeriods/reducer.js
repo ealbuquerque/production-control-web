@@ -3,7 +3,7 @@ import {
   LIST_ERROR,
   LIST_REQUEST,
   LIST_SUCCESS,
-} from './actions';
+} from './List/actions';
 
 const initialState = {
   list: undefined,

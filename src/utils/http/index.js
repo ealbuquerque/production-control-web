@@ -1,7 +1,7 @@
-import handleResponse from './handleResponse';
+import handleRequest from './handleRequest';
 import options from './options';
 
 export {
-  handleResponse,
+  handleRequest,
   options,
 };

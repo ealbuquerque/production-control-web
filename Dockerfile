@@ -1,9 +1,8 @@
+# Estágio 1
 FROM node:8-alpine as builder
 
-# Diretorio onde a aplicacao sera publicada
 WORKDIR /usr/src/app 
 
-# Instalacao de dependencias
 COPY package.json ./
 RUN yarn install --production
 
@@ -17,12 +16,9 @@ RUN ln -s usr/local/bin/docker-entrypoint.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 ENTRYPOINT ["docker-entrypoint.sh"]
 
-# Copia o .env gerado no processo de build para a raiz do container
-COPY .env ./
-
 RUN yarn build
 
-# Estágio 2 - O ambiente de produção
+# Estágio 2
 FROM nginx
 
 RUN rm /etc/nginx/conf.d/default.conf

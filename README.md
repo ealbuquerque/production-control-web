@@ -33,7 +33,7 @@ REACT_APP__API_URL='http://localhost:5000'
 ```bash
 yarn install
 
-# or
+# ou
 
 npm install
 ```
@@ -45,22 +45,28 @@ npm install
 ```bash
 yarn start
 
-# or
+# ou
 
 npm run start
 ```
 
+- Abra o projeto em um navegador de sua preferência ([https://localhost:3000](https://localhost:3000))
+
 #### Docker
 
-Este [docker-compose](docker-compose.yml) vai gerar a imagem do docker (caso não exista) e subir o serviço na porta 3000.
+Para rodar este projeto com o docker você deve ter o [docker](https://www.docker.com/) e o [docker-compose](https://docs.docker.com/compose/) instalados.
+
+Este [docker-compose](docker-compose.yml) vai gerar a imagem do **frontend** (caso não exista) e subir o serviço na porta `3000`.
 
 ```
 # subir serviço
 docker-compose up -d
 
 # parar serviço
-docker-compose down -v
+docker-compose down
 ```
+
+- Abra o projeto em um navegador de sua preferência ([https://localhost:3000](https://localhost:3000))
 
 ## Issues para resolver
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import {
+  Link,
+} from 'react-router-dom';
 
 function getMenu({
   label,
@@ -9,13 +11,13 @@ function getMenu({
   return (
     <Link
       key={index}
-      className="navbar-item is-active"
+      className="navbar-item"
       to={path}
     >
       {label}
     </Link>
-  )
-};
+  );
+}
 
 function Component(props) {
   const {
@@ -24,7 +26,7 @@ function Component(props) {
 
   return (
     <nav
-      className="navbar is-fixed-top"
+      className="navbar has-shadow is-spaced"
       role="navigation"
       aria-label="main navigation"
     >
@@ -48,18 +50,21 @@ function Component(props) {
           data-target="navbarFull"
           href="/"
         >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
         </a>
       </div>
-      <div id="navbarFull" className="navbar-menu">
+      <div
+        id="navbarFull"
+        className="navbar-menu"
+      >
         <div className="navbar-start">
           {menus.map(getMenu)}
         </div>
       </div>
     </nav>
   );
-};
+}
 
 Component.propTypes = {
   menus: PropTypes.arrayOf(PropTypes.shape({

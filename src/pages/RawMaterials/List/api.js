@@ -1,17 +1,17 @@
 import {
-  handleResponse,
+  handleRequest,
   options,
 } from '../../../utils/http';
 
-const deleteRawMaterial = id => fetch(
+const deleteRawMaterial = id => handleRequest(fetch(
   `${process.env.REACT_APP__API_URL}/raw-materials/${id}`,
   options('DELETE'),
-).then(handleResponse);
+));
 
-const getRawMaterials = () => fetch(
+const getRawMaterials = () => handleRequest(fetch(
   `${process.env.REACT_APP__API_URL}/raw-materials`,
   options('GET'),
-).then(handleResponse);
+));
 
 export default {
   deleteRawMaterial,
