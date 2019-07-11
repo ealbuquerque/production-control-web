@@ -106,8 +106,6 @@ function Page({
     );
   }
 
-  console.log(products);
-
   const showList = Boolean(products && products.length);
   return (
     <div className="products__container">
