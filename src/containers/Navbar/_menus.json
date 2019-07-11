@@ -1,0 +1,22 @@
+[
+  {
+    "label": "Home",
+    "path": "/"
+  },
+  {
+    "label": "Matérias-Primas",
+    "path": "/raw-materials"
+  },
+  {
+    "label": "Produtos",
+    "path": "/products"
+  },
+  {
+    "label": "Funcionários",
+    "path": "/employees"
+  },
+  {
+    "label": "Jornadas de trabalho",
+    "path": "/work-periods"
+  }
+]

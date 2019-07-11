@@ -1,68 +1,73 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Controle de Produção
 
-## Available Scripts
+## Visão de negócio
 
-In the project directory, you can run:
+O objetivo principal é disponibilizar webservices para administrar as operações dentro de um Centro de Produção. Neste centro são administrados matérias-prima, funcionários e produtos finais, sendo essenciais alguns relatórios com filtros específicos.
 
-### `npm start`
+## Visão Técnica
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Frontend baseado em ReactJS e disponibilizada em Docker.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Execução
 
-### `npm test`
+### 1º Passo - Clonar projeto
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Abra o terminal e acesse um  diretório de sua preferência.
+2. Clone o projeto com o comando abaixo:
 
-### `npm run build`
+```
+git clone https://github.com/ealbuquerque/production-control-web.git
+```
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 2º Passo - Variáveis de ambiente
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Crie um arquivo com o nome `.env` no diretório raiz da aplicação.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Template:
+```
+REACT_APP__API_URL='http://localhost:5000'
+```
 
-### `npm run eject`
+### 3º Passo - Baixar dependências
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+yarn install
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# ou
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+npm install
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 4º Passo - Iniciar a aplicação
 
-## Learn More
+#### Manualmente
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+yarn start
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# ou
 
-### Code Splitting
+npm run start
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+- Abra o projeto em um navegador de sua preferência ([https://localhost:3000](https://localhost:3000))
 
-### Analyzing the Bundle Size
+#### Docker
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Para rodar este projeto com o docker você deve ter o [docker](https://www.docker.com/) e o [docker-compose](https://docs.docker.com/compose/) instalados.
 
-### Making a Progressive Web App
+Este [docker-compose](docker-compose.yml) vai gerar a imagem do **frontend** (caso não exista) e subir o serviço na porta `3000`.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+```
+# subir serviço
+docker-compose up -d
 
-### Advanced Configuration
+# parar serviço
+docker-compose down
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+- Abra o projeto em um navegador de sua preferência ([https://localhost:3000](https://localhost:3000))
 
-### Deployment
+## Issues para resolver
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[Acesse aqui](https://github.com/ealbuquerque/production-control-web/issues)

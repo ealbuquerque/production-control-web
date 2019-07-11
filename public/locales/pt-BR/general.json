@@ -1,0 +1,76 @@
+{
+  "actions": "Ações",
+  "add": "Adicionar",
+  "cancel": "Cancelar",
+  "clean": "Limpar",
+  "edit": "Editar",
+  "employee": "Funcionário",
+  "errors": {
+    "apiNotFound": "Não foi possível acessar o servidor. Por favor, contate o administrador do sistema.",
+    "databaseError": "Erro de base de dados. Por favor, contate o administrador do sistema.",
+    "defaultError": "Ops, ocorreu um erro... Por favor, tente novamente.",
+    "foreignKeyConstraintError": {
+      "onCreateOrUpdate": "Não foi possível encontrar o registro da tabela de referência.",
+      "onDelete": "Não foi possível excluir este registro pois o mesmo possuí vínculos com outras tabelas."
+    },
+    "notFound": "Registro não encontrado",
+    "offline": "Parece que você está sem internet! Por favor, verifique a sua conexão e tente novamente.",
+    "schemaValidation": "Erro ao validar esquema do objeto",
+    "uniqueConstraintError": "O valor deve ser único."
+  },
+  "filter": "Filtrar",
+  "formValidation": {
+    "number": "Este campo deve ser um número",
+    "required": "Este campo é obrigatório"
+  },
+  "name": "Nome",
+  "navbar": {},
+  "noRecordToDisplay": "Nenhum registro para exibir",
+  "operation": "Operação",
+  "pages": {
+    "employees": {
+      "form": {
+        "title": "Funcionário"
+      },
+      "list": {
+        "title": "Funcionários"
+      }
+    },
+    "products": {
+      "form": {
+        "title": "Produto"
+      },
+      "list": {
+        "title": "Produtos"
+      }
+    },
+    "rawMaterials": {
+      "form": {
+        "title": "Matéria-Prima"
+      },
+      "list": {
+        "title": "Matérias-Primas"
+      }
+    },
+    "workPeriods": {
+      "form": {
+        "title": "Jornada de trabalho"
+      },
+      "list": {
+        "title": "Jornadas de trabalho"
+      }
+    }
+  },
+  "quantity": "Quantidade",
+  "rawMaterial": "Matéria-Prima",
+  "rawMaterials": "Matérias-Primas",
+  "registrySuccessfullyCreated": "Registro adicionado com sucesso",
+  "registrySuccessfullyRemoved": "Registro removido com sucesso",
+  "registrySuccessfullyUpdated": "Registro atualizado com sucesso",
+  "remove": "Remover",
+  "save": "Salvar",
+  "select": "Selecionar",
+  "update": "Atualizar",
+  "value": "Valor",
+  "workPeriod": "Jornada de trabalho"
+}
