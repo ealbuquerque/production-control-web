@@ -1,5 +1,6 @@
 import {
   DELETE_SUCCESS,
+  FILTER_SUCCESS,
   LIST_ERROR,
   LIST_REQUEST,
   LIST_SUCCESS,
@@ -13,6 +14,8 @@ import {
   UPDATE_REQUEST,
   UPDATE_SUCCESS,
 } from './Form/actions';
+
+import filter from '../../utils/filters/rawMaterials';
 
 const initialState = {
   error: undefined,
@@ -33,6 +36,16 @@ export default (state = initialState, action) => {
         list: state.list.filter(({
           id,
         }) => id !== payload),
+      };
+
+    case FILTER_SUCCESS:
+      return {
+        ...state,
+        list: state.listBkp.filter(({
+          quantity,
+        }) => ((payload.quantity && payload.operation)
+          ? filter(payload.quantity.value, quantity, payload.operation.operator)
+          : () => true)),
       };
 
     case ITEM_ERROR:
@@ -77,6 +90,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         list: payload,
+        listBkp: payload,
         error: undefined,
       };
 

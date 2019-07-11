@@ -2,6 +2,7 @@
   "actions": "Ações",
   "add": "Adicionar",
   "cancel": "Cancelar",
+  "clean": "Limpar",
   "edit": "Editar",
   "employee": "Funcionário",
   "errors": {
@@ -17,6 +18,7 @@
     "schemaValidation": "Erro ao validar esquema do objeto",
     "uniqueConstraintError": "O valor deve ser único."
   },
+  "filter": "Filtrar",
   "formValidation": {
     "number": "Este campo deve ser um número",
     "required": "Este campo é obrigatório"
@@ -24,6 +26,7 @@
   "name": "Nome",
   "navbar": {},
   "noRecordToDisplay": "Nenhum registro para exibir",
+  "operation": "Operação",
   "pages": {
     "employees": {
       "form": {
@@ -59,6 +62,7 @@
     }
   },
   "quantity": "Quantidade",
+  "rawMaterial": "Matéria-Prima",
   "rawMaterials": "Matérias-Primas",
   "registrySuccessfullyCreated": "Registro adicionado com sucesso",
   "registrySuccessfullyRemoved": "Registro removido com sucesso",

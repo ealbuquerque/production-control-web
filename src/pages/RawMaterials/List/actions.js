@@ -1,6 +1,9 @@
 import {
   createAction,
 } from 'redux-actions';
+import {
+  reset,
+} from 'redux-form';
 
 import {
   TOAST_ERROR,
@@ -19,8 +22,13 @@ import Api from './api';
 
 const CONTEXT = 'RawMaterialsList';
 
+export const FORM_FILTER = `${CONTEXT}/FORM_FILTER`;
+
 export const DELETE_SUCCESS = `${CONTEXT}/DELETE_SUCCESS`;
 const deleteSuccessAction = createAction(DELETE_SUCCESS);
+
+export const FILTER_SUCCESS = `${CONTEXT}/FILTER_SUCCESS`;
+const filterAction = createAction(FILTER_SUCCESS);
 
 export const LIST_ERROR = `${CONTEXT}/LIST_ERROR`;
 export const LIST_REQUEST = `${CONTEXT}/LIST_REQUEST`;
@@ -56,4 +64,12 @@ export const getRawMaterials = () => (dispatch) => {
       }
     })
     .finally(() => dispatch(loadingHideAction(dispatcher)));
+};
+
+export const onClickToCleanFilter = () => (dispatch) => {
+  dispatch(reset(FORM_FILTER));
+};
+
+export const onSubmitFilter = data => (dispatch) => {
+  dispatch(filterAction(data));
 };
