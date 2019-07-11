@@ -4,6 +4,10 @@
   "cancel": "Cancelar",
   "edit": "Editar",
   "employee": "Funcionário",
+  "errors": {
+    "apiNotFound": "Não foi possível acessar o servidor. Por favor, contate o administrador do sistema.",
+    "offline": "Parece que você está sem internet! Por favor, verifique a sua conexão e tente novamente."
+  },
   "formValidation": {
     "number": "Este campo deve ser um número",
     "required": "Este campo é obrigatório"
