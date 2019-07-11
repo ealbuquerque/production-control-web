@@ -38,7 +38,7 @@ export const deleteRawMaterial = id => (dispatch) => {
       dispatch(deleteSuccessAction(id));
       toastMessage(i18n.t('general:registrySuccessfullyRemoved'), TOAST_SUCCESS);
     })
-    .catch(error => toastMessage(error.details.message, TOAST_ERROR))
+    .catch(error => toastMessage(i18n.t(error.details.messageToken), TOAST_ERROR))
     .finally(() => dispatch(loadingHideAction(dispatcher)));
 };
 

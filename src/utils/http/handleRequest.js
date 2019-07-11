@@ -15,6 +15,9 @@ const handleError = reject => (error) => {
     if (isNetworkError) toastMessage(i18n.t('general:errors.apiNotFound'), TOAST_ERROR);
   }
 
+  const hasMessageToken = error && error.messageToken;
+  if (hasMessageToken) toastMessage(i18n.t(error.messageToken), TOAST_ERROR);
+
   reject(error);
 };
 
