@@ -31,7 +31,7 @@ const mapStateToProps = ({
     edit: t('general:edit'),
     name: t('general:name'),
     noRecordToDisplay: t('general:noRecordToDisplay'),
-    pageTitle: t('general:pages.employees.title'),
+    pageTitle: t('general:pages.employees.list.title'),
     remove: t('general:remove'),
     workPeriod: t('general:workPeriod'),
   },
