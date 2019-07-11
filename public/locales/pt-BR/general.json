@@ -17,6 +17,7 @@
     "schemaValidation": "Erro ao validar esquema do objeto",
     "uniqueConstraintError": "O valor deve ser único."
   },
+  "filter": "Filtrar",
   "formValidation": {
     "number": "Este campo deve ser um número",
     "required": "Este campo é obrigatório"
@@ -24,6 +25,7 @@
   "name": "Nome",
   "navbar": {},
   "noRecordToDisplay": "Nenhum registro para exibir",
+  "operation": "Operação",
   "pages": {
     "employees": {
       "form": {
