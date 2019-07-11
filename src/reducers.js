@@ -7,10 +7,10 @@ import {
 
 import loading from './containers/Loading/reducer';
 
-import employees from './pages/Employees/List/reducer';
-import products from './pages/Products/List/reducer';
-import rawMaterials from './pages/RawMaterials/List/reducer';
-import workPeriods from './pages/WorkPeriods/List/reducer';
+import employees from './pages/Employees/reducer';
+import products from './pages/Products/reducer';
+import rawMaterials from './pages/RawMaterials/reducer';
+import workPeriods from './pages/WorkPeriods/reducer';
 
 export default combineReducers({
   employees,
