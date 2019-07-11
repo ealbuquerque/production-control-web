@@ -17,6 +17,7 @@ import {
 
 import {
   createRawMaterial,
+  getRawMaterial,
   updateRawMaterial,
 } from './actions';
 
@@ -26,32 +27,47 @@ import validate from './validate';
 const mapStateToProps = ({
   rawMaterials: {
     error,
-    selectedItem,
+    item,
   },
 }, {
-  t,
-}) => ({
-  error,
-  labels: {
-    add: t('general:add'),
-    cancel: t('general:cancel'),
-    name: t('general:name'),
-    pageTitle: t('general:pages.rawMaterials.form.title'),
-    quantity: t('general:quantity'),
-    update: t('general:update'),
+  match: {
+    params: {
+      id: pathParamId,
+    },
   },
-  rawMaterial: selectedItem,
-});
+  t,
+}) => {
+  const isAddPage = pathParamId === undefined;
 
+  return {
+    error,
+    initialValues: isAddPage ? undefined : item,
+    labels: {
+      cancel: t('general:cancel'),
+      name: t('general:name'),
+      pageTitle: t('general:pages.rawMaterials.form.title'),
+      quantity: t('general:quantity'),
+      submit: isAddPage ? t('general:add') : t('general:update'),
+    },
+  };
+};
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   const {
     history,
+    match: {
+      params: {
+        id: pathParamId,
+      },
+    },
   } = ownProps;
 
+  const isAddPage = pathParamId === undefined;
+  const handleSubmit = isAddPage ? createRawMaterial : updateRawMaterial;
+
   return bindActionCreators({
-    handleSubmitCreate: data => createRawMaterial(data, history),
-    handleSubmitUpdate: data => updateRawMaterial(data, history),
+    getRawMaterial,
+    onSubmit: handleSubmit(history, pathParamId),
   }, dispatch);
 };
 

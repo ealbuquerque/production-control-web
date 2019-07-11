@@ -30,6 +30,11 @@ export default [
   },
   {
     path: '/raw-materials/new',
+    exact: true,
+    component: RawMaterialsForm,
+  },
+  {
+    path: '/raw-materials/:id',
     component: RawMaterialsForm,
   },
   {

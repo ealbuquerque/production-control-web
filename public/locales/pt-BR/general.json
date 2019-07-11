@@ -7,14 +7,14 @@
   "errors": {
     "apiNotFound": "Não foi possível acessar o servidor. Por favor, contate o administrador do sistema.",
     "databaseError": "Erro de base de dados. Por favor, contate o administrador do sistema.",
-    "schemaValidation": "Erro ao validar esquema do objeto",
     "defaultError": "Ops, ocorreu um erro... Por favor, tente novamente.",
     "foreignKeyConstraintError": {
       "onCreateOrUpdate": "Não foi possível encontrar o registro da tabela de referência.",
       "onDelete": "Não foi possível excluir este registro pois o mesmo possuí vínculos com outras tabelas."
     },
     "notFound": "Registro não encontrado",
-    "offline": "Parece que você está sem internet! Por favor, verifique a sua conexão e tente novamente."
+    "offline": "Parece que você está sem internet! Por favor, verifique a sua conexão e tente novamente.",
+    "schemaValidation": "Erro ao validar esquema do objeto"
   },
   "formValidation": {
     "number": "Este campo deve ser um número",
@@ -32,7 +32,7 @@
     },
     "rawMaterials": {
       "form": {
-        "title": "Matérias-Prima"
+        "title": "Matéria-Prima"
       },
       "list": {
         "title": "Matérias-Primas"
@@ -46,6 +46,7 @@
   "rawMaterials": "Matérias-Primas",
   "registrySuccessfullyCreated": "Registro adicionado com sucesso",
   "registrySuccessfullyRemoved": "Registro removido com sucesso",
+  "registrySuccessfullyUpdated": "Registro atualizado com sucesso",
   "remove": "Remover",
   "save": "Salvar",
   "update": "Atualizar",

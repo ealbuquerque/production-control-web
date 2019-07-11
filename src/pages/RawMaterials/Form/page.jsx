@@ -11,32 +11,35 @@ import {
 
 import Input from '../../../components/Input';
 
+import normalizeNumber from '../../../utils/normalize/number';
+
 import './styles.scss';
 
 function Page({
+  getRawMaterial,
   handleSubmit,
-  handleSubmitCreate,
-  handleSubmitUpdate,
+  onSubmit,
+  match: {
+    params: {
+      id: pathParamId,
+    },
+  },
   labels: {
-    add: addLabel,
     cancel: cancelLabel,
     name: nameLabel,
     pageTitle,
     quantity: quantityLabel,
-    update: updateLabel,
+    submit: submitLabel,
   },
-  pristine,
-  rawMaterial,
   submitting,
 }) {
-  // useEffect(() => {
-  //   getRawMaterials();
-  // }, [
-  //   getRawMaterials,
-  // ]);
+  useEffect(() => {
+    if (pathParamId !== undefined) getRawMaterial(pathParamId);
+  }, [
+    getRawMaterial,
+    pathParamId,
+  ]);
 
-  // const isDisabledSubmitButton = pristine || submitting;
-  const isDisabledSubmitButton = submitting;
   return (
     <div className="raw-material__container">
       <h1 className="title">
@@ -44,14 +47,14 @@ function Page({
       </h1>
       <div className="columns">
         <div className="column">
-          <form onSubmit={handleSubmit(handleSubmitCreate)}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div>
               <Field
                 id="name"
                 component={Input}
-                minLength={0}
-                maxLength={100}
                 label={`${nameLabel} *`}
+                maxLength={100}
+                minLength={0}
                 name="name"
                 type="text"
               />
@@ -60,20 +63,21 @@ function Page({
                 component={Input}
                 label={quantityLabel}
                 name="quantity"
+                normalize={normalizeNumber}
                 type="text"
               />
               <div className="field is-grouped">
                 <div className="control">
                   <button
                     type="submit"
-                    disabled={isDisabledSubmitButton}
+                    disabled={submitting}
                     className="button is-link"
                   >
                     <span className="icon">
                       <i className="fa fa-save" />
                     </span>
                     <span>
-                      {addLabel}
+                      {submitLabel}
                     </span>
                   </button>
                 </div>
@@ -101,7 +105,7 @@ function Page({
 
 Page.defaultProps = {
   error: undefined,
-  rawMaterial: undefined,
+  initialValues: undefined,
 };
 
 Page.propTypes = {
@@ -109,23 +113,25 @@ Page.propTypes = {
     details: PropTypes.shape({
     }),
   }),
+  getRawMaterial: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  handleSubmitCreate: PropTypes.func.isRequired,
-  handleSubmitUpdate: PropTypes.func.isRequired,
+  initialValues: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    quantity: PropTypes.number.isRequired,
+  }),
   labels: PropTypes.shape({
-    add: PropTypes.string.isRequired,
     cancel: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     pageTitle: PropTypes.string.isRequired,
     quantity: PropTypes.string.isRequired,
-    update: PropTypes.string.isRequired,
+    submit: PropTypes.string.isRequired,
   }).isRequired,
-  pristine: PropTypes.bool.isRequired,
-  rawMaterial: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    quantity: PropTypes.number.isRequired,
-  }),
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }).isRequired,
+  onSubmit: PropTypes.func.isRequired,
   submitting: PropTypes.bool.isRequired,
 };
 

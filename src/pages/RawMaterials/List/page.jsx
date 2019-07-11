@@ -47,10 +47,9 @@ function Page({
         </td>
         <td className="table_body--actions">
           <p className="buttons">
-            <button
-              type="button"
+            <Link
               className="button is-small"
-              disabled
+              to={`/raw-materials/${id}`}
             >
               <span className="icon">
                 <i className="fa fa-edit" />
@@ -58,7 +57,7 @@ function Page({
               <span>
                 {editLabel}
               </span>
-            </button>
+            </Link>
             <button
               type="button"
               className="button is-small"
