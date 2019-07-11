@@ -26,7 +26,7 @@ import Page from './page';
 import validate from './validate';
 
 const mapStateToProps = ({
-  rawMaterials: {
+  workPeriods: {
     error,
     item,
   },

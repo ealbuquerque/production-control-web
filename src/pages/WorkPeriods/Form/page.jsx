@@ -108,8 +108,7 @@ Page.propTypes = {
   getWorkPeriod: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   initialValues: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    quantity: PropTypes.number.isRequired,
+    value: PropTypes.string.isRequired,
   }),
   labels: PropTypes.shape({
     cancel: PropTypes.string.isRequired,
