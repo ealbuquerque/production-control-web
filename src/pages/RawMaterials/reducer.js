@@ -15,6 +15,7 @@ import {
 } from './Form/actions';
 
 const initialState = {
+  error: undefined,
   list: undefined,
   item: undefined,
 };
@@ -68,6 +69,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         error: undefined,
+        item: undefined,
         list: undefined,
       };
 

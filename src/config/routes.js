@@ -2,6 +2,7 @@ import DefaultRoute from '../components/DefaultRoute';
 
 import Home from '../pages/Home';
 import EmployeesList from '../pages/Employees/List';
+import EmployeesForm from '../pages/Employees/Form';
 import ProductsList from '../pages/Products/List';
 import RawMaterialsForm from '../pages/RawMaterials/Form';
 import RawMaterialsList from '../pages/RawMaterials/List';
@@ -18,6 +19,15 @@ export default [
     path: '/employees',
     exact: true,
     component: EmployeesList,
+  },
+  {
+    path: '/employees/new',
+    exact: true,
+    component: EmployeesForm,
+  },
+  {
+    path: '/employees/:id',
+    component: EmployeesForm,
   },
   {
     path: '/products',

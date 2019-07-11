@@ -35,6 +35,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         error: undefined,
+        item: undefined,
         list: undefined,
       };
 

@@ -2,6 +2,9 @@ import React, {
   useEffect,
 } from 'react';
 import PropTypes from 'prop-types';
+import {
+  Link,
+} from 'react-router-dom';
 
 import './styles.scss';
 
@@ -46,10 +49,9 @@ function Page({
         </td>
         <td className="table_body--actions">
           <p className="buttons">
-            <button
-              type="button"
+            <Link
               className="button is-small"
-              disabled
+              to={`/employees/${id}`}
             >
               <span className="icon">
                 <i className="fa fa-edit" />
@@ -57,7 +59,7 @@ function Page({
               <span>
                 {editLabel}
               </span>
-            </button>
+            </Link>
             <button
               type="button"
               className="button is-small"
@@ -84,10 +86,9 @@ function Page({
       </h1>
       <div className="columns">
         <div className="column">
-          <button
-            type="button"
+          <Link
             className="button is-small"
-            disabled
+            to="/employees/new"
           >
             <span className="icon">
               <i className="fa fa-plus" />
@@ -95,7 +96,7 @@ function Page({
             <span>
               {addLabel}
             </span>
-          </button>
+          </Link>
         </div>
       </div>
       <div className="columns">
