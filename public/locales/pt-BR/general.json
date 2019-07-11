@@ -34,7 +34,12 @@
       }
     },
     "products": {
-      "title": "Produtos"
+      "form": {
+        "title": "Produto"
+      },
+      "list": {
+        "title": "Produtos"
+      }
     },
     "rawMaterials": {
       "form": {

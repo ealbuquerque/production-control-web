@@ -16,26 +16,31 @@ import {
 } from 'react-router-dom';
 
 import {
-  createEmployee,
-  getEmployee,
+  createProduct,
+  getProduct,
   PATH_TO_GO_BACK,
-  updateEmployee,
+  updateProduct,
 } from './actions';
-
 import {
-  getWorkPeriods,
-} from '../../WorkPeriods/List/actions';
+  getEmployees,
+} from '../../Employees/List/actions';
+import {
+  getRawMaterials,
+} from '../../RawMaterials/List/actions';
 
 import Page from './page';
 import validate from './validate';
 
 const mapStateToProps = ({
-  employees: {
+  products: {
     error,
     item,
   },
-  workPeriods: {
-    list,
+  employees: {
+    list: listEmployees,
+  },
+  rawMaterials: {
+    list: listRawMaterials,
   },
 }, {
   match: {
@@ -48,18 +53,20 @@ const mapStateToProps = ({
   const isAddPage = pathParamId === undefined;
 
   return {
+    employees: listEmployees,
     error,
     initialValues: isAddPage ? undefined : item,
     labels: {
       cancel: t('general:cancel'),
+      employee: t('general:employee'),
       name: t('general:name'),
-      pageTitle: t('general:pages.employees.form.title'),
+      pageTitle: t('general:pages.products.form.title'),
       select: t('general:select'),
       submit: isAddPage ? t('general:add') : t('general:update'),
-      workPeriod: t('general:workPeriod'),
+      rawMaterials: t('general:rawMaterials'),
     },
     pathToGoBack: PATH_TO_GO_BACK,
-    workPeriods: list,
+    rawMaterials: listRawMaterials,
   };
 };
 
@@ -74,11 +81,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   } = ownProps;
 
   const isAddPage = pathParamId === undefined;
-  const handleSubmit = isAddPage ? createEmployee : updateEmployee;
+  const handleSubmit = isAddPage ? createProduct : updateProduct;
 
   return bindActionCreators({
-    getEmployee,
-    getWorkPeriods,
+    getEmployees,
+    getProduct,
+    getRawMaterials,
     onSubmit: handleSubmit(history, pathParamId),
   }, dispatch);
 };
@@ -88,7 +96,7 @@ export default compose(
   withRouter,
   connect(mapStateToProps, mapDispatchToProps),
   reduxForm({
-    form: 'EmployeeForm',
+    form: 'ProductForm',
     validate,
   }),
 )(Page);

@@ -13,8 +13,9 @@ import Input from '../../../components/Input';
 import Select from '../../../components/Select';
 
 function Page({
-  getEmployee,
-  getWorkPeriods,
+  getEmployees,
+  getProduct,
+  getRawMaterials,
   handleSubmit,
   onSubmit,
   match: {
@@ -24,26 +25,30 @@ function Page({
   },
   labels: {
     cancel: cancelLabel,
+    employee: employeeLabel,
     name: nameLabel,
     pageTitle,
     select: selectLabel,
     submit: submitLabel,
-    workPeriod: workPeriodLabel,
+    rawMaterials: rawMaterialsLabel,
   },
   pathToGoBack,
+  rawMaterials,
   submitting,
-  workPeriods,
+  employees,
 }) {
   useEffect(() => {
-    getWorkPeriods();
+    getEmployees();
+    getRawMaterials();
   }, [
-    getWorkPeriods,
+    getEmployees,
+    getRawMaterials,
   ]);
 
   useEffect(() => {
-    if (pathParamId !== undefined) getEmployee(pathParamId);
+    if (pathParamId !== undefined) getProduct(pathParamId);
   }, [
-    getEmployee,
+    getProduct,
     pathParamId,
   ]);
 
@@ -66,13 +71,25 @@ function Page({
                 type="text"
               />
               <Field
-                id="workPeriod"
+                id="employee"
                 component={Select}
-                label={`${workPeriodLabel} *`}
-                name="workPeriod"
-                getOptionLabel={option => option.value}
-                getOptionValue={option => option.value}
-                options={workPeriods}
+                label={`${employeeLabel} *`}
+                name="employee"
+                getOptionLabel={option => option.name}
+                getOptionValue={option => option.id}
+                options={employees}
+                type="text"
+                placeholder={selectLabel}
+              />
+              <Field
+                id="rawMaterials"
+                component={Select}
+                label={`${rawMaterialsLabel} *`}
+                name="rawMaterials"
+                getOptionLabel={option => option.name}
+                getOptionValue={option => option.id}
+                isMulti
+                options={rawMaterials}
                 type="text"
                 placeholder={selectLabel}
               />
@@ -116,12 +133,22 @@ function Page({
 Page.defaultProps = {
   error: undefined,
   initialValues: undefined,
-  workPeriods: undefined,
+  employees: undefined,
+  rawMaterials: undefined,
 };
 
-const workPeriodShape = PropTypes.shape({
+const employeeShape = PropTypes.shape({
   id: PropTypes.number.isRequired,
-  value: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  workPeriod: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    value: PropTypes.string.isRequired,
+  }),
+});
+
+const rawMaterialsShape = PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
 });
 
 Page.propTypes = {
@@ -129,20 +156,23 @@ Page.propTypes = {
     details: PropTypes.shape({
     }),
   }),
-  getEmployee: PropTypes.func.isRequired,
-  getWorkPeriods: PropTypes.func.isRequired,
+  getEmployees: PropTypes.func.isRequired,
+  getProduct: PropTypes.func.isRequired,
+  getRawMaterials: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   initialValues: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    workPeriod: workPeriodShape,
+    employee: employeeShape,
+    rawMaterials: PropTypes.arrayOf(rawMaterialsShape),
   }),
   labels: PropTypes.shape({
     cancel: PropTypes.string.isRequired,
+    employee: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     pageTitle: PropTypes.string.isRequired,
     select: PropTypes.string.isRequired,
     submit: PropTypes.string.isRequired,
-    workPeriod: PropTypes.string.isRequired,
+    rawMaterials: PropTypes.string.isRequired,
   }).isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
@@ -151,8 +181,9 @@ Page.propTypes = {
   }).isRequired,
   onSubmit: PropTypes.func.isRequired,
   pathToGoBack: PropTypes.string.isRequired,
+  rawMaterials: PropTypes.arrayOf(rawMaterialsShape),
   submitting: PropTypes.bool.isRequired,
-  workPeriods: PropTypes.arrayOf(workPeriodShape),
+  employees: PropTypes.arrayOf(employeeShape),
 };
 
 export default Page;
