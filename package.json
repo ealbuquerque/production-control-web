@@ -38,6 +38,8 @@
   },
   "scripts": {
     "build": "react-scripts build",
+    "docker-start": "docker-compose up -d",
+    "docker-stop": "docker-compose down",
     "eject": "react-scripts eject",
     "lint": "eslint ./src && stylelint --config=.stylelintrc.json '**/*.scss'",
     "lint-fix": "eslint ./src --fix && stylelint --config=.stylelintrc.json '**/*.scss' --fix",
