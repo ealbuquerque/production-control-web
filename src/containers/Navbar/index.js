@@ -4,6 +4,9 @@ import {
 import {
   compose,
 } from 'redux';
+import {
+  withRouter,
+} from 'react-router-dom';
 
 import Component from '../../components/Navbar';
 
@@ -15,4 +18,5 @@ const mapStateToProps = () => ({
 
 export default compose(
   connect(mapStateToProps),
+  withRouter,
 )(Component);

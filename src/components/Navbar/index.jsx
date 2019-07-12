@@ -4,29 +4,34 @@ import {
   Link,
 } from 'react-router-dom';
 
-function getMenu({
+const getMenu = pathname => ({
   label,
   path,
-}, index) {
+}, index) => {
+  const isCurrentPath = path === `/${pathname.split('/')[1]}`;
+
   return (
     <Link
       key={index}
-      className="navbar-item"
+      className={`navbar-item ${isCurrentPath ? 'is-tab is-active' : ''}`}
       to={path}
     >
       {label}
     </Link>
   );
-}
+};
 
 function Component(props) {
   const {
+    location: {
+      pathname,
+    },
     menus,
   } = props;
 
   return (
     <nav
-      className="navbar has-shadow is-spaced"
+      className="navbar has-shadow"
       role="navigation"
       aria-label="main navigation"
     >
@@ -59,7 +64,7 @@ function Component(props) {
         className="navbar-menu"
       >
         <div className="navbar-start">
-          {menus.map(getMenu)}
+          {menus.map(getMenu(pathname))}
         </div>
       </div>
     </nav>
@@ -67,6 +72,9 @@ function Component(props) {
 }
 
 Component.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
   menus: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string.isRequired,
     path: PropTypes.string.isRequired,
