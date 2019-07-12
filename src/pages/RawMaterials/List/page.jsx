@@ -11,8 +11,6 @@ import {
 
 import Select from '../../../components/Select';
 
-import './styles.scss';
-
 function Page({
   deleteRawMaterial,
   getRawMaterials,
@@ -93,7 +91,7 @@ function Page({
 
   const showList = Boolean(rawMaterials && rawMaterials.length);
   return (
-    <div className="raw-materials__container">
+    <>
       <h1 className="title">
         {pageTitle}
       </h1>
@@ -112,62 +110,66 @@ function Page({
           </Link>
         </div>
       </div>
-      <div className="columns">
-        <div className="column">
-          <form onSubmit={handleSubmit(onSubmitFilter)}>
-            <Field
-              id="quantity"
-              component={Select}
-              label={`${quantityLabel} *`}
-              name="quantity"
-              getOptionLabel={option => option.value}
-              getOptionValue={option => option.value}
-              options={quantities}
-              type="text"
-              placeholder={selectLabel}
-            />
-            <Field
-              id="operation"
-              component={Select}
-              label={`${operationLabel} *`}
-              name="operation"
-              getOptionLabel={option => option.label}
-              getOptionValue={option => option.label}
-              options={operations}
-              type="text"
-              placeholder={selectLabel}
-            />
-            <div className="field is-grouped">
-              <div className="control">
-                <button
-                  type="submit"
-                  disabled={submitting}
-                  className="button is-link"
-                >
-                  <span className="icon">
-                    <i className="fa fa-filter" />
-                  </span>
-                  <span>
-                    {submitLabel}
-                  </span>
-                </button>
+      <div className="page__filter">
+        <div className="columns">
+          <div className="column">
+            <form onSubmit={handleSubmit(onSubmitFilter)}>
+              <div className="columns">
+                <div className="column">
+                  <Field
+                    id="quantity"
+                    component={Select}
+                    label={`${quantityLabel} *`}
+                    name="quantity"
+                    getOptionLabel={option => option.value}
+                    getOptionValue={option => option.value}
+                    options={quantities}
+                    type="text"
+                    placeholder={selectLabel}
+                  />
+                </div>
+                <div className="column">
+                  <Field
+                    id="operation"
+                    component={Select}
+                    label={`${operationLabel} *`}
+                    name="operation"
+                    getOptionLabel={option => option.label}
+                    getOptionValue={option => option.label}
+                    options={operations}
+                    type="text"
+                    placeholder={selectLabel}
+                  />
+                </div>
+                <div className="buttons">
+                  <button
+                    type="submit"
+                    disabled={submitting}
+                    className="button is-link"
+                  >
+                    <span className="icon">
+                      <i className="fa fa-filter" />
+                    </span>
+                    <span>
+                      {submitLabel}
+                    </span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={onClickToCleanFilter}
+                    className="button is-light"
+                  >
+                    <span className="icon">
+                      <i className="fa fa-eraser" />
+                    </span>
+                    <span>
+                      {cleanLabel}
+                    </span>
+                  </button>
+                </div>
               </div>
-              <div className="control">
-                <button
-                  type="button"
-                  onClick={onClickToCleanFilter}
-                  className="button is-lightk"
-                >
-                  <span className="icon">
-                    <i className="fa fa-eraser" />
-                  </span>
-                  <span>
-                    {cleanLabel}
-                  </span>
-                </button>
-              </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
       <div className="columns">
@@ -200,7 +202,7 @@ function Page({
           )}
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

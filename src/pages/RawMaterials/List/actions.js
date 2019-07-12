@@ -68,6 +68,10 @@ export const getRawMaterials = () => (dispatch) => {
 
 export const onClickToCleanFilter = () => (dispatch) => {
   dispatch(reset(FORM_FILTER));
+
+  const data = {
+  };
+  dispatch(filterAction(data));
 };
 
 export const onSubmitFilter = data => (dispatch) => {

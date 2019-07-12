@@ -11,8 +11,6 @@ import {
 
 import Select from '../../../components/Select';
 
-import './styles.scss';
-
 function Page({
   deleteProduct,
   employees,
@@ -108,81 +106,85 @@ function Page({
 
   const showList = Boolean(products && products.length);
   return (
-    <div className="products__container">
+    <>
       <h1 className="title">
         {pageTitle}
       </h1>
-      <div className="columns">
-        <div className="column">
-          <Link
-            className="button is-small"
-            to="/products/new"
-          >
-            <span className="icon">
-              <i className="fa fa-plus" />
-            </span>
-            <span>
-              {addLabel}
-            </span>
-          </Link>
+      <div className="page__filter">
+        <div className="columns">
+          <div className="column">
+            <Link
+              className="button is-small"
+              to="/products/new"
+            >
+              <span className="icon">
+                <i className="fa fa-plus" />
+              </span>
+              <span>
+                {addLabel}
+              </span>
+            </Link>
+          </div>
         </div>
-      </div>
-      <div className="columns">
-        <div className="column">
-          <form onSubmit={handleSubmit(onSubmitFilter)}>
-            <Field
-              id="employee"
-              component={Select}
-              label={`${employeeLabel} *`}
-              name="employee"
-              getOptionLabel={option => option.name}
-              getOptionValue={option => option.id}
-              options={employees}
-              type="text"
-              placeholder={selectLabel}
-            />
-            <Field
-              id="rawMaterial"
-              component={Select}
-              label={`${rawMaterialLabel} *`}
-              name="rawMaterial"
-              getOptionLabel={option => option.name}
-              getOptionValue={option => option.id}
-              options={rawMaterials}
-              type="text"
-              placeholder={selectLabel}
-            />
-            <div className="field is-grouped">
-              <div className="control">
-                <button
-                  type="submit"
-                  disabled={submitting}
-                  className="button is-link"
-                >
-                  <span className="icon">
-                    <i className="fa fa-filter" />
-                  </span>
-                  <span>
-                    {submitLabel}
-                  </span>
-                </button>
+        <div className="columns">
+          <div className="column">
+            <form onSubmit={handleSubmit(onSubmitFilter)}>
+              <div className="columns">
+                <div className="column">
+                  <Field
+                    id="employee"
+                    component={Select}
+                    getOptionLabel={option => option.name}
+                    getOptionValue={option => option.id}
+                    label={`${employeeLabel} *`}
+                    name="employee"
+                    options={employees}
+                    placeholder={selectLabel}
+                    type="text"
+                  />
+                </div>
+                <div className="column">
+                  <Field
+                    id="rawMaterial"
+                    component={Select}
+                    getOptionLabel={option => option.name}
+                    getOptionValue={option => option.id}
+                    label={`${rawMaterialLabel} *`}
+                    name="rawMaterial"
+                    options={rawMaterials}
+                    placeholder={selectLabel}
+                    type="text"
+                  />
+                </div>
+                <div className="buttons">
+                  <button
+                    type="submit"
+                    disabled={submitting}
+                    className="button is-link"
+                  >
+                    <span className="icon">
+                      <i className="fa fa-filter" />
+                    </span>
+                    <span>
+                      {submitLabel}
+                    </span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={onClickToCleanFilter}
+                    className="button is-light"
+                  >
+                    <span className="icon">
+                      <i className="fa fa-eraser" />
+                    </span>
+                    <span>
+                      {cleanLabel}
+                    </span>
+                  </button>
+                </div>
               </div>
-              <div className="control">
-                <button
-                  type="button"
-                  onClick={onClickToCleanFilter}
-                  className="button is-lightk"
-                >
-                  <span className="icon">
-                    <i className="fa fa-eraser" />
-                  </span>
-                  <span>
-                    {cleanLabel}
-                  </span>
-                </button>
-              </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
       <div className="columns">
@@ -218,7 +220,7 @@ function Page({
           )}
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
