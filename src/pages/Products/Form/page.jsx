@@ -58,7 +58,7 @@ function Page({
         {pageTitle}
       </h1>
       <div className="columns">
-        <div className="column">
+        <div className="column is-half">
           <form onSubmit={handleSubmit(onSubmit)}>
             <div>
               <Field
