@@ -1,1 +1,38 @@
 @import 'bulma/bulma.sass';
+
+.buttons > .button {
+  font-weight: 400;
+}
+
+.page__filter {
+  .buttons {
+    align-self: flex-start;
+    margin-right: 0;
+    padding: 0.75rem;
+
+    > .button {
+      font-weight: 400;
+      height: 38px;
+    }
+
+    @media screen and (max-width: 768px) {
+      > .button {
+        display: flex;
+        width: 100%;
+
+        &:not(:last-child) {
+          margin-right: 0;
+        }
+      }
+    }
+
+    @media screen and (min-width: 769px) {
+      margin-top: 24px;
+    }
+  }
+}
+
+.table_body--actions,
+.table_header--actions {
+  width: 185px;
+}
